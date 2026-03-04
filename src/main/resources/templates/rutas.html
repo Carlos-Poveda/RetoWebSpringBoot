@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Listado de Rutas</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<main class="container">
+    <h1>Listado de Rutas</h1>
+
+    <table class="tabla-rutas" aria-label="Listado de rutas">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Ubicacion</th>
+            <th>Direccion</th>
+            <th>Punto</th>
+            <th>X</th>
+            <th>Y</th>
+            <th>GeomType</th>
+            <th>Type</th>
+            <th>Web</th>
+            <th>MasInformacion</th>
+        </tr>
+        </thead>
+        <tbody th:each="ruta : ${rutas}">
+        <tr>
+            <td th:text="${ruta.id}">id</td>
+            <td th:text="${ruta.properties.nombre}">nombre</td>
+            <td th:text="${ruta.properties.ubicacion}">ubicacion</td>
+            <td th:text="${ruta.properties.direccion}">direccion</td>
+            <td th:text="${ruta.properties.punto}">punto</td>
+            <td th:text="${ruta.geometry.coordinates[0]}">x</td>
+            <td th:text="${ruta.geometry.coordinates[1]}">y</td>
+            <td th:text="${ruta.geometry.type}">geomType</td>
+            <td th:text="${ruta.type}">type</td>
+            <td>
+                <a th:href="${ruta.properties.web}" target="_blank" th:text="${ruta.properties.web}">Web</a>
+            </td>
+            <td>
+                <a th:href="${ruta.properties.masInformacion}" target="_blank" th:text="${ruta.properties.masInformacion}">MasInformacion</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

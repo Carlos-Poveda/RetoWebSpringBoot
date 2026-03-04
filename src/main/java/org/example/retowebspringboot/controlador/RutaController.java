@@ -4,22 +4,28 @@ import org.example.retowebspringboot.excepcion.RutaNotFoundException;
 import org.example.retowebspringboot.modelo.Ruta;
 import org.example.retowebspringboot.persistencia.RutaRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/rutas")
-class RutaController {
+public class RutaController {
+
     private final RutaRepository rutaRepository;
-    RutaController(RutaRepository rutaRepository) {
+
+    public RutaController(RutaRepository rutaRepository) {
         this.rutaRepository = rutaRepository;
     }
 
-    // TODAS LAS RUTAS
+    // Devolver la página HTML con todas las rutas
     @GetMapping("/all_rutas")
-    public List<Ruta> findAll() {
-        return rutaRepository.findAll();
+    public String all_rutas(Model model) {
+        List<Ruta> rutas = rutaRepository.findAll();
+        model.addAttribute("rutas", rutas);
+        return "rutas";
     }
     // RUTA POR ID
     @GetMapping("/ruta_id/{id}")
