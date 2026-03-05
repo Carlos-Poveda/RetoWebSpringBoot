@@ -1,0 +1,79 @@
+/* =========================================
+   Reset básico y Tipografía
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #121212; /* Fondo principal muy oscuro */
+    color: #e0e0e0;            /* Texto gris claro para no cansar la vista */
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+/* =========================================
+   Contenedor Principal y Encabezado
+   ========================================= */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   Estilos de la Tabla (Actualizado)
+   ========================================= */
+.tabla-rutas {
+    width: 100%;
+    table-layout: fixed; /* ESTO ES CLAVE: Obliga a la tabla a no superar el 100% de su contenedor */
+    border-collapse: collapse;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Cabecera y celdas del cuerpo */
+.tabla-rutas th,
+.tabla-rutas td {
+    padding: 0.75rem; /* Reducimos un poco el padding para ganar espacio */
+    text-align: left;
+    word-wrap: break-word; /* Permite que el texto salte a la siguiente línea */
+    overflow-wrap: break-word;
+}
+
+/* Reducimos un poco el tamaño de fuente general de la tabla para que quepa mejor */
+.tabla-rutas td {
+    border-bottom: 1px solid #333333;
+    font-size: 0.85rem;
+}
+
+/* Controlar específicamente los enlaces largos para que se rompan si no caben */
+.tabla-rutas a {
+    color: #8ab4f8;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+    word-break: break-all; /* Rompe URLs largas en cualquier punto */
+    display: inline-block;
+}
+
+/* =========================================
+   Enlaces
+   ========================================= */
+
+.tabla-rutas a:hover {
+    color: #d2e3fc;
+    text-decoration: underline;
+}
